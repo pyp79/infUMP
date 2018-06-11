@@ -31,7 +31,7 @@ def main():
     conn.close()
 
     # 生成csv文件
-    csv_file = open(EXPORT_FILE_NEW,'w',newline='')
+    csv_file = open(EXPORT_FILE_NEW,'w',newline='',encoding='UTF-8')
     writer = csv.writer(csv_file)
     writer.writerow(['APP_NAME','IP_ADDRESS','POLICY_NAME','POLICY_DESC','COMPONENT_TYPE','MONITOR','SEV1_CONDITION','SEV2_CONDITION','SEV3_CONDITION'])
     writer.writerows(rows)
@@ -42,7 +42,7 @@ def main():
     ftp = get_cmdb_ftp()
     filename = os.path.basename(EXPORT_FILE_NEW)
     handle = open(EXPORT_FILE_NEW, "rb")
-    ftp.storbinary("STOR /TEST/" + filename, handle, 1024)
+    ftp.storbinary("STOR /attachment/" + filename, handle, 1024)
     handle.close()
 
     logger.info("Success ftp the file:%s.",EXPORT_FILE_NEW)
