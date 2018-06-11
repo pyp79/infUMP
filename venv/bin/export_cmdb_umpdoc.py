@@ -1,6 +1,6 @@
-1  #!/usr/bin/python3
-2  # -*- coding:utf-8 -*- 
-3  #Author: Pang Yapeng
+#!/usr/bin/python3
+# -*- coding:utf-8 -*-
+#Author: Pang Yapeng
 
 import datetime
 import csv
