@@ -29,6 +29,17 @@ def get_cmdb_ftp():
     ftp.login(FTP_CMDB_USER, FTP_CMDB_PASSWD)
     return ftp
 
+def get_amdb_ftp():
+    # get cmdb ftp 连接
+    conf = get_conf()
+    FTP_AMDB_IP = conf.get("AMDB_FTP", "FTP_AMDB_IP")
+    FTP_AMDB_PORT = conf.get("AMDB_FTP", "FTP_AMDB_PORT")
+    FTP_AMDB_USER = conf.get("AMDB_FTP", "FTP_AMDB_USER")
+    FTP_AMDB_PASSWD = conf.get("AMDB_FTP", "FTP_AMDB_PASSWD")
+    ftp = ftplib.FTP()
+    ftp.connect(FTP_AMDB_IP, int(FTP_AMDB_PORT))
+    ftp.login(FTP_AMDB_USER, FTP_AMDB_PASSWD)
+    return ftp
 
 def get_conn():
     conf = get_conf()

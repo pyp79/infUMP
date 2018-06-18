@@ -44,6 +44,7 @@ def main():
     handle = open(EXPORT_FILE_NEW, "rb")
     ftp.storbinary("STOR /attachment/" + filename, handle, 1024)
     handle.close()
+    ftp.quit()
 
     logger.info("Success ftp the file:%s.",EXPORT_FILE_NEW)
 
